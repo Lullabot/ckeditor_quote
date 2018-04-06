@@ -1,0 +1,4 @@
+name: CKEditor Quote
+type: module
+description: 'Provides a CKEditor plugin to embed a quote with text and author.'
+core: '8.x'
