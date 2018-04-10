@@ -50,29 +50,8 @@ class Quote extends CKEditorPluginBase {
   /**
    * {@inheritdoc}
    */
-  public function isInternal() {
-    return FALSE;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getDependencies(Editor $editor) {
-    return array();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function getLibraries(Editor $editor) {
-    return array();
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   public function getConfig(Editor $editor) {
-    return array();
+    return [];
   }
 
 }
