@@ -73,31 +73,31 @@ CKEDITOR.dialog.add('quoteDialog', function (editor) {
 
         // Called by the main setupContent call on dialog initialization.
         setup: function (element) {
-          var div = element.findOne('div');
-          if (div !== null) {
-            this.setValue(div.getText());
+          var authorElem = element.findOne('footer');
+          if (authorElem !== null) {
+            this.setValue(authorElem.getText());
           }
         },
 
         // Called by the main commitContent call on dialog confirmation.
         commit: function (element) {
-          var div = element.findOne('div');
-          if (div === null) {
+          var authorElem = element.findOne('footer');
+          if (authorElem === null) {
             if (this.getValue() !== '') {
-              div = editor.document.createElement('div');
-              element.append(div);
-              div.setAttribute('class', 'author');
-              div.setText(this.getValue());
+              authorElem = editor.document.createElement('footer');
+              element.append(authorElem);
+              authorElem.setAttribute('class', 'author');
+              authorElem.setText(this.getValue());
             }
           }
           else {
             if (this.getValue() !== '') {
-              div.setAttribute('class', 'author');
-              div.setText(this.getValue());
+              authorElem.setAttribute('class', 'author');
+              authorElem.setText(this.getValue());
             }
             else {
-              // Author has been removed, remove div.
-              div.remove();
+              // Author has been removed, remove authorElem.
+              authorElem.remove();
             }
           }
         }
@@ -115,12 +115,12 @@ CKEDITOR.dialog.add('quoteDialog', function (editor) {
       // Get the element at the start of the selection.
       var element = selection.getStartElement();
 
-      // Get the div element closest to the selection, if any.
+      // Get the authorElem element closest to the selection, if any.
       if (element) {
         element = element.getAscendant('blockquote', true);
       }
 
-      // Create a new <div> element if it does not exist.
+      // Create a new <authorElem> element if it does not exist.
       if (!element || element.getName() !== 'blockquote') {
         element = editor.document.createElement('blockquote');
         // Flag the insertion mode for later use.
@@ -130,7 +130,7 @@ CKEDITOR.dialog.add('quoteDialog', function (editor) {
         this.insertMode = false;
       }
 
-      // Store the reference to the <div> element in an internal property, for later use.
+      // Store the reference to the <authorElem> element in an internal property, for later use.
       this.element = element;
 
       // Invoke the setup methods of all dialog elements, so they can load the element attributes.
