@@ -1,3 +1,5 @@
+**NOTE: Future development will take place on Drupal.org. This repo will be archived soon.**
+
 # CKEditor Quote #
 
 A CKEditor plugin for Drupal 8 to create a quote with text and author.
